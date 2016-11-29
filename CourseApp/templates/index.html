@@ -1,0 +1,101 @@
+{% extends "basic.inc.html" %}
+{% load staticfiles %}
+{% block title %}首页{% endblock %}
+{% block nav-title %}你好，TIT Coder{% endblock %}
+{% block nav-intro %}让我们带领你领略计算机世界的魅力{% endblock %}
+{% block nav-more %}
+<a href="course/" class="btn btn-primary btn-lg">马上体验</a>
+{% endblock %}
+{% block content %}
+
+<!-- Intro Section Start -->
+<section class="intro">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <span class="glyphicon glyphicon-apple" style="font-size: 60px"></span>
+                <h2 class="section-heading">刚开始学习计算机？</h2>
+                <p class="text-light">让TIT Coder见证你的成长。任何学科的学习都不会是一蹴而就的，就是一天一天、一点一滴的积累，坚持编写程序并相信你自己。你的程序会变得一天比一天漂亮。</p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Intro Section End -->
+
+<!-- Content 1 Start -->
+<section class="content">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <img class="img-responsive img-circle center-block" src="{% static "images/microphone.jpg" %}" alt="">
+            </div>
+            <div class="col-sm-6">
+                <h2 class="section-header">了解计算机行业最新的发展</h2>
+                <p class="lead text-muted">计算机行业是21世界最热门，并且是发展速度最快，就职人数最多的行业。无数有志改变世界的程序员们加入这个行业并为这个行业付出他们的青春和热血。当然，这个行业的更新换代也是极为迅速的，想要知道自己是否已经落后于时代了？看看这个行业最前沿的程序员们都在做什么吧。</p>
+                <a href="news/" class="btn btn-primary btn-lg">最新资讯</a>
+            </div>                
+            
+        </div>
+    </div>
+</section>
+<!-- Content 1 End -->
+
+<!-- Content 2 Start -->
+ <section class="content content-2">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <h2 class="section-header">计算机课程</h2>
+                <p class="lead text-light">在这里太原工业学院的老师们为我们提供了许多质量上佳的计算机课程，想要和其他TIT Coder们一起成长，成为一名更加优秀的TIT Coder，那我们就马上开始我们的计算机之旅吧。如果你不知道选择什么样的课程，没关系。在这个你可以<a href="">点击这里</a>来看看TIT的老师们给你们的建议。</p>
+                <a href="course/" class="btn btn-default btn-lg">立即开始</a>
+            </div>
+            <div class="col-sm-6">
+                <img class="img-responsive img-circle center-block" src="{% static "images/iphone.jpg" %}" alt="">
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- Content 2 End -->
+
+<!-- Promos Start -->
+<div class="container-fluid">
+    <div class="row promo">
+        <a href="bbs/">
+            <div class="col-md-4 promo-item item-1">
+                <h3>
+                    论坛
+                </h3>
+            </div>
+        </a>
+        <a href="chatroom/">
+            <div class="col-md-4 promo-item item-2">
+                <h3>
+                    <a href="http://localhost:3000">聊天室</a>
+                </h3>
+            </div>
+        </a>
+        
+        <a href="join/">
+            <div class="col-md-4 promo-item item-3">
+                <h3>
+                    加入我们
+                </h3>
+            </div>
+        </a>
+    </div>
+</div><!-- /.container-fluid -->
+<!-- Promos End -->
+
+<!-- Content 3 Start -->
+ <section class="content content-3">
+    <div class="container">
+        <h2 class="section-header"><span class="glyphicon glyphicon-pushpin text-primary"></span><br>对你的忠告</h2>
+        <p class="lead text-muted">在这里所有人都是最优秀的TIT Coder。有许多的学生从对计算机一无所知到成为人人都希望成为的技术的引领者。每个学习者都是从最简单的“Hello World”开始。持续保持你的热情，让你和千千万万名TIT Coder一起共筑互联网的家园。</p> 
+                <!-- <a href="#" class="btn btn-primary btn-lg">Check Now</a>     -->           
+        </div>
+    </div>
+</section>
+<!-- Content 3 End -->
+
+{% endblock %}

@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <title>TIT Coder - 资讯</title>
+
+    {% load staticfiles %}
+    <!-- CSRF JS -->
+    <script src="{% static csrf.js %}"></script>
+
+
+
+    <!-- Bootstrap Core CSS -->
+    <link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">
+
+    <!-- Custom CSS: You can use this stylesheet to override any Bootstrap styles and/or apply your own styles -->
+    <link href="{% static "css/custom.css" %}" rel="stylesheet">
+    <link rel="alternate stylesheet" type="text/css" href="{% static "css/green.css" %}" title="styles5" media="screen">
+    <link href="{% static "css/style.css" %}" rel="stylesheet" type="text/css">
+
+    <!-- Font Awesome Css -->
+    <link href="{% static "css/font-awesome.min.css" %}" rel="stylesheet">
+
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!--[if IE 7]>
+    <link rel="stylesheet" href="assets/css/font-awesome-ie7.min.css">
+    <![endif]-->
+
+    <!-- Custom Fonts from Google -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <style>
+    .page-footer .contact a{color:white;}
+    </style>
+
+</head>
+
+<body>
+
+<!-- Navigation Start -->
+<nav id="siteNav" class="navbar navbar-default navbar-fixed-top" style="background-color:yellowgreen;" role="navigation">
+    <div class="container">
+        <!-- Logo and responsive toggle -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">
+                <span class="glyphicon glyphicon-fire"></span>
+                TIT Coder
+            </a>
+        </div>
+        <!-- Navbar links -->
+        <div class="collapse navbar-collapse" style="float:left;" id="navbar">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="active">
+                    <a href="/">主页</a>
+                </li>
+                <li>
+                    <a href="/news">资讯</a>
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">课程<span class="caret"></span></a>
+                    <ul class="dropdown-menu" aria-labelledby="about-us">
+                        <li><a href="/course">所有课程</a></li>
+                        <li><a href="/course/program">程序设计</a></li>
+                        <li><a href="/course/network">计算机网络</a></li>
+                        <li><a href="/course/science">计算机科学</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="/bbs">BBS</a>
+                </li>
+            </ul>
+
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container -->
+</nav>
+<!-- Navigation End -->
+
+    <!-- Header Start -->
+    <!-- Banner Start -->
+    <div id="banner">
+        <div class="slider-wrapper theme-default">
+            <div id="slider" class="nivoSlider" style="margin-top:51px;">
+                <a href="#"><img src="{% static "images/banner1.jpg" %}" title="#banner1" alt="" /></a>
+                <a href="#"><img src="{% static "images/banner2.jpg" %}" title="#banner2" alt="" /></a>
+                <a href="#"><img src="{% static "images/banner3.jpg" %}" title="#banner3" alt="" /></a>
+            </div>
+            <!-- Banner Caption Start -->
+            <div id="banner1" class="nivo-html-caption">
+                <div class="ban-capt-desc">
+                    <div class="ban-capt-mid">
+                        <div class="ban-capt-in">
+                            <h1 class="white">"TIT Coder平台将在2016/12/04号对服务器进行维护升级"</h1>
+                            <p>
+                                TIT Coder平台顺利的陪伴着每一位TIT Coder度过了3个月的时光。而TIT Coder平台将在2017/12/04号对平台进行维护升级。感谢你们一直以来对TIT Coder的支持。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Banner Caption End -->
+            <!-- Banner Caption Start -->
+            <div id="banner2" class="nivo-html-caption">
+                <div class="ban-capt-desc">
+                    <div class="ban-capt-mid">
+                        <div class="ban-capt-in">
+                            <h1 class="white">"太原工业学院第一届思软杯程序比赛顺利进行中....."</h1>
+                            <p>
+                                第一届思软杯程序比赛顺利进行，每一位同学拿出了优秀的参赛水平。感谢大家的参与。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Banner Caption End -->
+            <!-- Banner Caption Start -->
+            <div id="banner3" class="nivo-html-caption">
+                <div class="ban-capt-desc">
+                    <div class="ban-capt-mid">
+                        <div class="ban-capt-in">
+                            <h1 class="white">"TIT Coder平台提前预祝太原工业学院的同学们元旦快乐"</h1>
+                            <p>
+                                又到了元旦的时候，每一位学子都希望早日回家，和家人们团聚。在这里，TIT Coder祝每一位学子元旦快乐。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Banner Caption End -->
+        </div>
+    </div>
+    <!-- Banner End -->
+<!-- Header End -->
+
+<!-- main part -->
+<!-- Content Section Start -->
+    <div id="contentsec">
+    	<div class="inner">
+
+            <!-- Two Third Box Start -->
+            <div class="twothird box padbox left">
+            	<!-- Half Box Start -->
+            	<div class="halfbox left">
+                	<h3 class="heading colr">Welcome to Identity Church</h3>
+                    <!-- Home Page Post Start -->
+                    <div class="home-post">
+                    	<a href="#" class="thumb"><img src="{% static "images/img1.jpg "%}" alt="" /></a>
+                        <h4>
+                        	<a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean commodo dolor at sapien luctus non venenatis dui lacinia. Phasellus viverra, orci ut lacinia</a>
+                        </h4>
+                        <p>
+                        	Your membership means more than simply signing a piece of paper. Becoming a member of Stonebriar expresses your commitment to this "spiritual family," A family that worships together, grows in faith together, and serves one another.
+                        </p>
+                        <a href="#" class="readmore">Read more</a>
+                    </div>
+                    <!-- Home Page Post End -->
+                    <h3 class="heading colr">How to Becoming a Member</h3>
+                    <!-- Home Page Post Start -->
+                    <div class="home-post">
+                        <h4>
+                        	<a href="#">A family that worships together, grows in faith together, and serves one another.</a>
+                        </h4>
+                        <p>
+                        	Your membership means more than simply signing a piece of paper. Becoming a member of Stonebriar expresses your commitment to this "spiritual family," A family that worships together.Your membership means more than simply signing a piece of paper. Becoming a member of Stonebriar.
+                        </p>
+                        <p>
+                        	A family that worships together.Your membership means more than simply signing a piece of paper. Becoming a member of Stonebriar.
+                        </p>
+                        <a href="#" class="readmore">Read more</a>
+                    </div>
+                    <!-- Home Page Post End -->
+                </div>
+                <!-- Half Box End -->
+                <!-- Half Box Start -->
+                <div class="halfbox right">
+                	<h3 class="heading colr">Ministries and programs</h3>
+                    <!-- Home Page Post Start -->
+                    <div class="home-post">
+                        <a href="#" class="thumb"><img src="{% static "images/img2.jpg "%}" alt="" /></a>
+                        <h4><a href="#">Worship and prayer</a></h4>
+                        <p>
+                            A federal judge in Ohio ruled Monday that former Rep. Steve Driehaus' defamation suit. In a case that
+                        </p>
+                        <a href="#" class="readmore">Read more</a>
+                    </div>
+                    <!-- Home Page Post End -->
+                    <!-- Home Page Post Start -->
+                    <div class="home-post">
+                        <a href="#" class="thumb"><img src="{% static "images/img3.jpg "%}" alt="" /></a>
+                        <h4><a href="#">Weekly Service</a></h4>
+                        <p>
+                            A federal judge in Ohio ruled Monday that former Rep. Steve Driehaus' defamation suit. In a case that
+                        </p>
+                        <a href="#" class="readmore">Read more</a>
+                    </div>
+                    <!-- Home Page Post End -->
+                    <!-- Home Page Post Start -->
+                    <div class="home-post">
+                        <a href="#" class="thumb"><img src="{% static "images/img4.jpg "%}" alt="" /></a>
+                        <h4><a href="#">Give up for Childrens</a></h4>
+                        <p>
+                            A federal judge in Ohio ruled Monday that former Rep. Steve Driehaus' defamation suit. In a case that
+                        </p>
+                        <a href="#" class="readmore">Read more</a>
+                    </div>
+                    <!-- Home Page Post End -->
+                </div>
+                <!-- Half Box End -->
+                <!-- Fullwidth Box Start -->
+              	<div class="fullwidth box left">
+                  	<div class="widgets-area-conts">
+                      	<!-- Widget PlaceHolder Start -->
+                      	<div class="widget-placeholder">
+                          	<!-- Text Widget Start -->
+                          	<div class="widget textwidget">
+                              	<h3 class="widget-head">Watch the Latest Messages</h3>
+                                  <h4 class="colr">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean commodo dolor at sapien luctus non venenatis dui.</h4>
+                                  <p>Your membership means more than simply signing a piece of paper. Becoming a member of Stonebriar expresses your commitment to this.</p>
+                                  <blockquote>
+                                  	<p class="italic">Your membership means more than simply signing a piece of paper. Becoming a member Your membership means more than simply.</p>
+                                  </blockquote>
+                                  <a href="#" class="buttonone">Watch Video</a>
+                                  <div class="clear"></div>
+                              </div>
+                              <!-- Text Widget End -->
+                          </div>
+                          <!-- Widget PlaceHolder End -->
+                          <!-- Widget PlaceHolder Start -->
+                          <div class="widget-placeholder">
+
+                          </div>
+                          <!-- Widget PlaceHolder End -->
+                          <!-- Widget PlaceHolder Start -->
+                          <div class="widget-placeholder">
+                          	<!-- Donation Widget Start -->
+                          	<div class="widget donation">
+                              	<h3 class="widget-head">Help Us Reach Our Goal</h3>
+                                  <div class="donation-area">
+                                  	<div class="donation-detail">
+                                          <div class="raised">
+                                          	<h1 class="colr">$14,856</h1>
+                                              <p>Rased so far</p>
+                                          </div>
+                                          <div class="goal">
+                                          	<h1 class="colr">$30,000</h1>
+                                              <p>Our Goal</p>
+                                          </div>
+                                      </div>
+                                      <div class="donate-bar-sec">
+                                      	<div class="dont-bar">
+                                          	<span class="filledbar backcolr" style="width:40%">&nbsp;</span>
+                                          </div>
+                                          <span class="zero-figre">$0</span>
+                                          <span class="end-figre">$30,000</span>
+                                      </div>
+                                  </div>
+                                  <a href="#" class="buttonone">More About Cuase</a>
+                              </div>
+                              <!-- Calendar Widget End -->
+                          </div>
+                          <!-- Widget PlaceHolder End -->
+                      </div>
+                  </div>
+                  <!-- Fullwidth Box End -->
+            </div>
+
+            <!-- Two Third Box End -->
+            <!-- One Third Box Start -->
+            <div class="onethird right">
+            	<!-- One Third Box Start -->
+                <div class="onethird box left">
+                	<!-- Upcoming Widget Start -->
+            		<div class="widget upcoming-events">
+                    	<h3 class="widget-head-border colr">Upcomming Events</h3>
+                        <ul>
+                        	<li>
+                            	<div class="date">
+                                	<span>01</span>
+                                    <span>JUL</span>
+                                </div>
+                                <div class="desc">
+                                	<a href="#" class="title txthover">Aenean commodo dolor at sapien luc tus non venenatis</a>
+                                    <p class="time">12:00 PM - 1:00 PM</p>
+                                    <p class="location">Location: Lorum ipsum Church</p>
+                                </div>
+                            </li>
+                            <li>
+                            	<div class="date">
+                                	<span>05</span>
+                                    <span>JUL</span>
+                                </div>
+                                <div class="desc">
+                                	<a href="#" class="title txthover">Aenean commodo dolor at sapien luc tus non venenatis</a>
+                                    <p class="time">12:00 PM - 1:00 PM</p>
+                                    <p class="location">Location: Lorum ipsum Church</p>
+                                </div>
+                            </li>
+                            <li>
+                            	<div class="date">
+                                	<span>08</span>
+                                    <span>JUL</span>
+                                </div>
+                                <div class="desc">
+                                	<a href="#" class="title txthover">Aenean commodo dolor at sapien luc tus non venenatis</a>
+                                    <p class="time">12:00 PM - 1:00 PM</p>
+                                    <p class="location">Location: Lorum ipsum Church</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- Upcoming Widget End -->
+            	</div>
+                <!-- One Third Box End -->
+                <!-- One Third Box Start -->
+                <div class="onethird box left">
+                	<!-- Facebook Widget Start -->
+            		<div class="widget facebook-widget">
+                    	<a href="#"><img src="{% static "images/facebook.jpg "%}" alt="" /></a>
+                    </div>
+                    <!-- Facebook Widget Start -->
+            	</div>
+                <!-- One Third Box End -->
+            </div>
+            <!-- One Third Box End -->
+        </div>
+    </div>
+    <!-- Content Section End -->
+    <!-- Center Column -->
+
+    <div class="container">
+      <h3>所有文章</h3>
+        <hr>
+        <!-- Articles -->
+        {% for article in latest_article_list %}
+        <div class="row">
+            <article class="col-xs-12">
+                <h2><a id="article_title", href="/news/{{ article.id }}">{{ article.title }}</a></h2>
+                <p>{{ article.content|truncatechars_html:80 | safe }}</p>
+            <!--     <p><button class="btn btn-default">Read More</button></p>  -->
+                <p class="pull-right"><span class="label label-default">{{ article.category }}</span> <span class="label label-default">tag</span> <span class="label label-default">{{ article.author }}</span></p>
+                <ul class="list-inline">
+                    <li><a href="#">{{ article.pub_date | date:"j M" }}</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-comment"></span> {{ article.thumbup }} Comments</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-star-empty"></span>{{ article.collect }} Favorites</a></li>
+                </ul>
+            </article>
+        </div>
+        <hr>
+        {% endfor %}
+    </div>
+    <!--/Center Column-->
+<!-- /.main -->
+
+<!-- Footer -->
+<footer class="page-footer">
+
+    <!-- Contact Us -->
+    <div class="contact">
+        <div class="container">
+            <h2 class="section-heading">Contact Us</h2>
+            <p>
+            <a href="tel:15383464763" class="icon-phone icon-2x" target="_blank"></a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            <a href="https://github.com/boytoy" class="icon-github icon-2x" target="_blank"></a>
+            </p>
+            <p>
+            <a href="mail:745612798@qq.com" class="icon-envelope-alt icon-2x" target="_blank"></a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            <a href="http://weibo.com/u/5572930101?refer_flag=1001030102_&is_hot=1" class="icon-weibo icon-2x" target="_blank"></a>
+            </p>
+        </div>
+    </div>
+
+    <!-- Copyright etc -->
+    <div class="small-print">
+        <div class="container">
+            <p>Copyright &copy; 2017</p>
+        </div>
+    </div>
+
+</footer>
+
+<!-- jQuery -->
+<script src="{% static "js/jquery-1.11.3.min.js" %}"></script>
+<!-- Bootstrap Core JavaScript -->
+<script src="{% static "js/bootstrap.min.js" %}"></script>
+<!-- IE10 viewport bug workaround -->
+<script src="{% static "js/ie10-viewport-bug-workaround.js" %}"></script>
+<!-- Plugin JavaScript -->
+<script src="{% static "js/jquery.easing.min.js" %}"></script>
+<!-- Custom Javascript -->
+<script src="{% static "js/jquery.min.js" %}"></script>
+<script src="{% static "js/styleswitch.js" %}"></script>
+<script src="{% static "js/animatedcollapse.js" %}"></script>
+<script src="{% static "js/ddsmoothmenu.js" %}"></script>
+<script src="{% static "js/jquery.nivo.slider.js" %}"></script>
+<script src="{% static "js/jquery.infinite-carousel.js" %}"></script>
+<script src="{% static "js/scrolltopcontrol.js" %}"></script>
+<script src="{% static "js/functions.js" %}"></script>
+
+
+</body>
+
+</html>

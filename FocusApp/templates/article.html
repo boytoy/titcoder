@@ -1,0 +1,59 @@
+{% extends "abase.html" %}
+{% load staticfiles %}
+{% block title %}{{ atticle.title }}{% endblock %}
+
+{% block main %}
+
+<div class="container-fluid" style="margin-top: 70px;">
+	<!-- Center Column -->
+	<div class="container">
+        <!-- Article -->
+        <div class="row">
+            <article class="col-xs-12">
+                <h2>{{ article.title }}</h2>
+                <p class="pull-right"><span class="label label-default">{{ article.category }}</span> <span class="label label-default">{{ article.pub_date | date:"j M" }}</span> <span class="label label-default">{{ article.author }}</span></p>
+                <p><hr></p>
+                <p>{{ content | safe }}</p>
+                <p></p>
+                <ul class="list-inline">
+                    <li><a href=" "><span class="glyphicon glyphicon-comment"></span> {{ article.comment_num }} Comments</a></li>
+                    <li><a href="/news/{{ article.id }}/collect/"><span class="glyphicon glyphicon-star-empty"></span>{{ article.collect_num }} Favorites</a></li>
+                    <li><a href="/news/{{ article.id }}/thumbup/"><span class="glyphicon glyphicon-thumbs-up"></span>{{ article.thumbup_num }} Upvotes</a></li>
+                </ul>
+            </article>
+        </div>
+        <hr>
+
+        <!-- Comments -->
+        <h3>评论</h3>
+        <hr>
+        {% for comment in comments %}
+        <div class="row">
+
+            <article class="col-xs-12">
+                <p class="pull-right"> <span class="label label-default">tag</span> <span class="label label-default">{{ comment.user }}</span></p>
+                <p>{{ comment.content }}</p>
+                <ul class="list-inline">
+                    <li><a href=" ">{{ comment.pub_date | date:"j M" }}</a></li>
+                    <li><a href=" "><span class="glyphicon glyphicon-comment"></span> {{ comment.comment_num }} Comments</a></li>
+                    <li><a href=" "><span class="glyphicon glyphicon-thumbs-up"></span>{{ comment.thumbup }} Upvotes</a></li>
+                </ul>
+            </article>
+        </div>
+        <hr>
+        {% endfor %}
+        <div class="row">
+            <article class="col-xs-12">
+                <h4>发表你的评论：</h4>
+                <form action="/news/{{ article.id }}/comment/" method="post">
+                    {% csrf_token %}
+                    {{ commentform.as_p }}
+                    <input class="btn btn-default" type="submit" value="发表评论">
+                </form>
+            </article>
+        </div>
+        <hr>
+    </div><!--/Center Column-->
+</div>
+
+{% endblock %}

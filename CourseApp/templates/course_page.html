@@ -1,0 +1,37 @@
+{% extends "cbase.html" %}
+{% load staticfiles %}
+{% block title %}{{ course.name }}{% endblock %}
+
+{% block main %}
+
+
+<div role="tabpanel" class="container row" style="min-height: 700px; margin-top: 76px; text-align: center; font-size: 20px">
+  <!-- Nav tabs -->
+  <div class="col-md-2" style="margin-top: 30px">
+	<ul class="nav nav-pills nav-stacked" role="tablist">
+	  <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">简介</a></li>
+	  <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">公告板</a></li>
+	  <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">章节安排</a></li>
+	  <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">课件讲义</a></li>
+	  <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">视频观看</a></li>
+	  <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">项目作业</a></li>
+	  <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">课程说明</a></li>
+	</ul>
+</div>
+
+  	<!-- Tab panes -->
+	<div class="tab-content col-md-10" style="text-align: left; padding: 20px 30px 0 30px; margin-top: 30px">
+	  <div role="tabpanel" class="tab-pane active" id="home"><p>{{ course.intro }}</p></div>
+	  <div role="tabpanel" class="tab-pane" id="profile"><p>{{ course.board }}</p></div>
+	  <div role="tabpanel" class="tab-pane" id="messages"><p>{{ couse.arrange }}</p></div>
+	  <div role="tabpanel" class="tab-pane" id="settings"><a href="">{{ course.lecture }}</a></div>
+	  <div role="tabpanel" class="tab-pane mbed-responsive embed-responsive-16by9e">
+			<iframe class="embed-responsive-item" width="854" height="480" src="https://www.youtube.com/embed/HQKI7dM9sGw?list=PL4F6BC180997B763F" frameborder="0" allowfullscreen></iframe>
+	  </div>
+	  <div role="tabpanel" class="tab-pane"><a href="">123</a></div>
+	  <div role="tabpanel" class="tab-pane" id="settings">123</div>
+	</div>
+
+</div>
+
+{% endblock %}

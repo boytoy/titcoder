@@ -1,0 +1,22 @@
+.left-content-panel{
+    border: 2px solid crimson;
+}
+
+.right-sidebar{
+    border: 2px solid black;
+}
+
+.article-summary{
+    margin-left: 20px;
+}
+.article-head-img img{
+    height: 125px;
+    width: 180px;
+}
+.article-box{
+    margin-bottom: 20px;
+}
+
+.comment-node{
+    border: 2px dashed #a0a0a0;
+}

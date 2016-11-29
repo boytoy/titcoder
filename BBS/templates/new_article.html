@@ -1,0 +1,37 @@
+{% extends 'index.html' %}
+
+{% block head-js %}
+    <script src="/static/plugins/ckeditor/ckeditor.js" xmlns="http://www.w3.org/1999/html"></script>
+{% endblock %}
+
+{%  block page-container %}
+    <div class="new-article">
+    {% if new_article_obj %}
+        <h3>article<{{ new_article_obj }}>submitted <a href="{% url 'article_detail' new_article_obj.id %}">click to view</a></h3>
+    {% else %}
+    <form enctype="multipart/form-data" method="post" action="{% url 'new_article' %}">{% csrf_token %}
+        <input name="title" type="text" class="form-control" placeholder="title">
+        <select name="category_id"class="form-control">
+            {% for category in category_list %}
+             <option value="{{ category.id }}">{{ category.name }}</option>
+            {% endfor %}
+        </select>
+    <input name="summary" type="text" class="form-control" placeholder="summary">
+    <input type="file" name="head_img">must have an image
+    <textarea id="ck-editor" name="content" class="form-control" rows="3"></textarea>
+    </br>
+    <button type="submit" class="btn btn-success pull-right">submit</button>
+    </form>
+    {% endif %}
+
+    </div>
+{% endblock %}
+{% block bottom-js %}
+    <script>
+    CKEDITOR.replace('ck-editor');
+        config.language = 'es';
+        config.uiColor = '#F7B42C';
+        config.height=300;
+        config.toolbarCollapse = true;
+    </script>
+{% endblock %}

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<!-- saved from url=(0048)http://v3.bootcss.com/examples/navbar-fixed-top/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="http://v3.bootcss.com/favicon.ico">
+
+    <title>TIT Coder--论坛</title>
+
+    <!-- Bootstrap core CSS -->
+    {% load staticfiles %}
+    <!-- Bootstrap Core CSS -->
+    <link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">
+    <!-- Font Awesome Css -->
+    <link href="{% static "css/font-awesome.min.css" %}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'bs/css/navbar-fixed-top.css'%}" rel="stylesheet">
+    <link href="{% static 'bs/css/custom.css'%}" rel="stylesheet">
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!-- Custom CSS -->
+    <link href="{% static "css/custom.css" %}" rel="stylesheet">
+
+    <script src="{% static 'bs/js/ie-emulation-modes-warning.js' %}"></script>
+    <style>
+    .page-footer .contact a{color:white;}
+    a:hover, a:focus {color:dimgray;}
+    a{color: gray;}
+    </style>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="http://cdn.bootcss.com/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    {% block head-js %}
+    {% endblock %}
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top" style="background-color: seagreen" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/" style="color:rgba(255,255,255,.7);">
+            <span class="glyphicon glyphicon-fire"></span>
+            TIT Coder  论坛
+          </a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="{% static 'bbs' %}" style="color:rgba(255,255,255,.7)">论坛首页</a></li>
+            <li><a href="{% static 'category' 3 %}" style="color:rgba(255,255,255,.7)">软件开发</a></li>
+            <li><a href="{% static 'category' 2 %}" style="color:rgba(255,255,255,.7)">操作系统</a></li>
+            <li><a href="{% static 'category' 2 %}" style="color:rgba(255,255,255,.7)">计算机网络</a></li>
+            <li><a href="{% static 'category' 2 %}" style="color:rgba(255,255,255,.7)">编译原理</a></li>
+            <li><a href="{% static 'category' 2 %}" style="color:rgba(255,255,255,.7)">基础应用</a></li>
+            <li><a href="{% static 'category' 2 %}" style="color:rgba(255,255,255,.7)">资料分享</a></li>
+
+			<!-- 这个部分功能可以添加 -->
+            {% for category in categorys %}
+				<li><a href="">{{ category.name }}</a></li>
+			{% endfor %}
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+             {% if request.user.is_authenticated %}
+                 <li class="dropdown">
+                      <a href="" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" style="color:rgba(255,255,255,.7)">{{ request.user.userprofile.name }} <span class="caret"></span></a>
+                      <ul class="dropdown-menu" role="menu">
+                        <li><a href="new_article/">发布帖子</a></li>
+                        <li><a href="">回复我的</a></li>
+                        <li class="divider"></li>
+                        <li><a href="">个人资料</a></li>
+                        <li><a href="">我的博客</a></li>
+                        <li><a href="{% static 'logout'%}">注销</a></li>
+                      </ul>
+                </li>
+              {% else %}
+                <li><a href="{% static 'login'%}">register/login</a></li>
+              {% endif %}
+{#            <li><a href="http://v3.bootcss.com/examples/navbar/">Default</a></li>#}
+{#            <li><a href="http://v3.bootcss.com/examples/navbar-static-top/">Static top</a></li>#}
+{#            <li class="active"><a href="./Fixed Top Navbar Example for Bootstrap_files/Fixed Top Navbar Example for Bootstrap.html">Fixed top</a></li>#}
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container" style="height:1263px;">
+        {% block page-container %}
+            <div class="row">
+                <div class="col-md-8 left-content-panel" style="border: none;">
+                    <div class="context-box">
+                        {% for article in articles reversed %}
+                            <div class="article-box  row">
+                                <!-- <div class="article-head-img col-md-3">
+{#                              	<img src="{{ article.head_img }}">#}
+                                    <img src="{{ article.head_img }}">
+                                </div> -->
+                                <div class="article-summary col-md-8">
+                                    <h4><a href="{% static 'article_detail' article.id %}">{{ article.title }}</a></h4>
+                                    <div class="article-attr">
+                                        <ul class="list-inline">
+                                            <li>作者:{{ article.author.name }}</li>
+                                            <li>发布日期:{{ article.publish_date }}</li>
+                                            <li>点赞次数:{{ article.thumbup_set.select_related.count }}</li>
+                                            <li>评论:{{ article.comment_set.select_related.count }}</li>
+                                        </ul>
+                                    </div>
+                                    <p>{{ article.summary }}</p>
+                                </div>
+                            </div>
+                            <hr>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="col-md-4 right-sidebar" style="border: none;">
+                    <ul class="nav navbar-nav">
+                    	<h3>最新发布</h3>
+			          	<li><a href="{% static 'bbs' %}">这段Java程序为什么无法运行，大家请看看</a></li>
+			        	<li><a href="{% static 'category' 3 %}">为什么这段scheme程序总是报错？</a></li>
+			            <li><a href="{% static 'category' 2 %}">C++ Primer电子书分享</a></li>
+			        </ul>
+			        <ul class="nav navbar-nav">
+                    	<h3>最热帖子</h3>
+			          	<li><a href="{% static 'bbs' %}">讨论下你最喜欢的编程语言</a></li>
+			        	<li><a href="{% static 'category' 3 %}">最新视频课发布</a></li>
+			            <li><a href="{% static 'category' 2 %}">自己做的小游戏，和大家分享一下</a></li>
+			        </ul>
+                </div>
+            </div>
+        {% endblock %}
+    </div> <!-- /container -->
+
+
+    <!-- Footer -->
+    <footer class="page-footer">
+
+        <!-- Contact Us -->
+        <div class="contact" style="background-color: seagreen;">
+            <div class="container">
+                <h2 class="section-heading">Contact Us</h2>
+                <p>
+                <a href="tel:15383464763" class="icon-phone icon-2x" target="_blank"></a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                <a href="https://github.com/boytoy" class="icon-github icon-2x" target="_blank"></a>
+                </p>
+                <p>
+                <a href="mail:745612798@qq.com" class="icon-envelope-alt icon-2x" target="_blank"></a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                <a href="http://weibo.com/u/5572930101?refer_flag=1001030102_&is_hot=1" class="icon-weibo icon-2x" target="_blank"></a>
+                </p>
+            </div>
+        </div>
+        <!--  -->
+        <!-- Copyright etc -->
+        <div class="small-print">
+            <div class="container">
+                <p>Copyright &copy; 2017</p>
+            </div>
+        </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="{% static 'bs/js/jquery.min.js' %}"></script>
+    <script src="{% static 'bs/js/bootstrap.min.js' %}"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="{% static 'bs/js/ie10-viewport-bug-workaround.js' %}"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+                var menus = $("#navbar a[href='{{ request.path }}']")[0];
+                $ (menus).parent().addClass("active");
+                $ (menus).parent().siblings().removeClass("active");
+                console.log(menus);
+        });
+
+    </script>
+{% block bottom-js %}
+{% endblock %}
+</body>
+</html>

@@ -1,0 +1,45 @@
+{% extends 'blog_base.html' %}
+{% block title %}TIT Coder--发布{% endblock %}
+{% block style %}
+{% endblock %}
+{% block content %}
+
+<div class="container" style="margin: 80px">
+	<h1>文章发布</h1>
+    <form name="form1" method="POST" action="" >
+        {% csrf_token %}
+        <table class="table">
+            <tr>
+                <td><h4>标题</h4></td>
+                <td><input name="title" class="form-control" type="text" size="60" value="{{articleInfo.title}}"/></td>
+            </tr>
+            <tr>
+                <td><h4>标签</h4></td>
+                <td><input name="tags" type="text" class="form-control" size="60" value="{{articleInfo.tags}}"/></td>
+            </tr>
+            <tr>
+                <td><h4>摘要</h4></td>
+                <td><textarea name="summary" class="form-control" id="summary" cols="20" rows="2">{{articleInfo.summary}}</textarea></td>
+            </tr>
+            <tr>
+                <td><h4>内容</h4></td>
+                <td>
+				<textarea name="content" id="TextArea1" class="form-control" cols="70" rows="5" class="ckeditor"></textarea>
+         		{{articleInfo.content|safe}}
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+        <div style="float: right; ">
+        <a class="btn btn-success" href="/blog/publish" style="margin-right: 20px;">发布</a>
+        <a class="btn btn-warning" href="/blog/save" style="margin-right: 20px;">保存草稿</a>
+        <a class="btn btn-danger" href="/blog/giveup">放弃修改</a>
+        </div>
+    </form>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,84 @@
+{% extends "cbase.html" %}
+{% load staticfiles %}
+{% block title %}TIT Coder -- 课程{% endblock %}
+
+{% block main %}
+
+    <!-- Header Start -->
+    <!-- Banner Start -->
+    <div id="banner">
+        <div class="slider-wrapper theme-default">
+            <div id="slider" class="nivoSlider" style="margin-top:51px;">
+                <a href="#"><img src="{% static "images/banner1.jpg" %}" title="#banner1" alt=""></a>
+                <a href="#"><img src="{% static "images/banner2.jpg" %}" title="#banner2" alt=""></a>
+                <a href="#"><img src="{% static "images/banner3.jpg" %}" title="#banner3" alt=""></a>
+            </div>
+        </div>
+        <!-- Banner Caption Start -->
+            <div id="banner1" class="nivo-html-caption">
+                <div class="ban-capt-desc">
+                    <div class="ban-capt-mid">
+                        <div class="ban-capt-in">
+                            <h1 class="white">"高级计算机程序设计"</h1>
+                            <p>
+                                高级计算机程序设计是一门训练大型系统设计，高级程序设计以及程序除虫的课程。
+                                通过本课程的许多项目可以使你迅速成长为经验老道的程序员。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Banner Caption End -->
+            <!-- Banner Caption Start -->
+            <div id="banner2" class="nivo-html-caption">
+                <div class="ban-capt-desc">
+                    <div class="ban-capt-mid">
+                        <div class="ban-capt-in">
+                            <h1 class="white">"30天学会HTML5"</h1>
+                            <p>
+                                随着互联网规模愈加庞大，前端工程师的需求愈加增多。而HTML5是学习前端最基础的语言。
+                                本课程是一门面向零基础学院的课程，通过本课程的学习，一定会让你进入前端开发的大门。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Banner Caption End -->
+            <!-- Banner Caption Start -->
+            <div id="banner3" class="nivo-html-caption">
+                <div class="ban-capt-desc">
+                    <div class="ban-capt-mid">
+                        <div class="ban-capt-in">
+                            <h1 class="white">"Linux零基础入门"</h1>
+                            <p>
+                                零基础学习Linux，顺利让你从Windows平台转到Linux平台下的开发。
+                                本课程介绍了Linux方方面面，从Linux的组成和设计思想到基本命令再到Linux下工具的使用和Linux编程。
+                                让你从Linux菜鸟到大牛。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Banner Caption End -->
+    </div>
+    <!-- Banner End -->
+<!-- Header End -->
+
+<div class="container" id="tour">
+	{% for course in latest_course_list %}
+	<a href="/course/{{ course.id }}">
+	<figure>
+		<img src="{% static "images/course1.jpg" %}" alt="">
+		<figcaption>
+			<strong class="img-responsive img-circle center-block title">&lt;{{ course.name }}&gt;</strong> {{ course.intro }}
+			<div class="info">
+				<em class="date">开课时间：{{ course.pub_date }} - {{ course.dead_line }}</em>
+			</div>
+			<div class="type">{{ course.category }}</div>
+		</figcaption>
+	</figure>
+	</a>
+	{% endfor %}
+</div>
+
+{% endblock %}

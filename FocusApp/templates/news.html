@@ -1,0 +1,151 @@
+{% extends "abase.html" %}
+{% load staticfiles %}
+{% block title %}TIT Coder - 资讯{% endblock %}
+
+{% block main %}
+
+    <!-- Header Start -->
+    <!-- Banner Start -->
+    <div id="banner">
+        <div class="slider-wrapper theme-default">
+            <div id="slider" class="nivoSlider" style="margin-top:51px;">
+                <a href="#"><img src="{% static "images/fbanner1.jpg" %}" title="#banner1" alt="" /></a>
+                <a href="#"><img src="{% static "images/fbanner2.jpg" %}" title="#banner2" alt="" /></a>
+                <a href="#"><img src="{% static "images/fbanner3.jpg" %}" title="#banner3" alt="" /></a>
+            </div>
+            <!-- Banner Caption Start -->
+            <div id="banner1" class="nivo-html-caption">
+                <div class="ban-capt-desc">
+                    <div class="ban-capt-mid">
+                        <div class="ban-capt-in" style="width: 327px;">
+                            <h1 class="white">"TIT Coder平台将在2016/12/04号对服务器进行维护升级"</h1>
+                            <p>
+                                TIT Coder平台顺利的陪伴着每一位TIT Coder度过了3个月的时光。而TIT Coder平台将在2017/12/04号对平台进行维护升级。感谢你们一直以来对TIT Coder的支持。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Banner Caption End -->
+            <!-- Banner Caption Start -->
+            <div id="banner2" class="nivo-html-caption">
+                <div class="ban-capt-desc">
+                    <div class="ban-capt-mid">
+                        <div class="ban-capt-in">
+                            <h1 class="white">"太原工业学院第一届思软杯程序比赛顺利进行中....."</h1>
+                            <p>
+                                第一届思软杯程序比赛顺利进行，每一位同学拿出了优秀的参赛水平。感谢大家的参与。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Banner Caption End -->
+            <!-- Banner Caption Start -->
+            <div id="banner3" class="nivo-html-caption">
+                <div class="ban-capt-desc">
+                    <div class="ban-capt-mid">
+                        <div class="ban-capt-in">
+                            <h1 class="white">"TIT Coder平台提前预祝太原工业学院的同学们元旦快乐"</h1>
+                            <p>
+                                又到了元旦的时候，每一位学子都希望早日回家，和家人们团聚。在这里，TIT Coder祝每一位学子元旦快乐。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Banner Caption End -->
+        </div>
+    </div>
+    <!-- Banner End -->
+<!-- Header End -->
+
+<!-- main part -->
+<!-- Content Section Start -->
+    <div id="contentsec" style="height: 1263px;">
+    	<div class="inner">
+
+            <!-- Two Third Box Start -->
+            <div class="twothird box padbox left">
+              <div class="container">
+                <h3>所有文章</h3>
+                  <hr>
+                  <!-- Articles -->
+                  {% for article in latest_article_list %}
+                  <div class="row" style="width: 650px;">
+                      <article class="col-xs-12">
+                          <h2><a id="article_title", href="/news/{{ article.id }}">{{ article.title }}</a></h2>
+                          <p>{{ article.content|truncatechars_html:80 | safe }}</p>
+                      <!--     <p><button class="btn btn-default">Read More</button></p>  -->
+                          <p class="pull-right"><span class="label label-default">{{ article.category }}</span> <span class="label label-default">tag</span> <span class="label label-default">{{ article.author }}</span></p>
+                          <ul class="list-inline">
+                              <li><a href="#">{{ article.pub_date | date:"j M" }}</a></li>
+                              <li><a href="#"><span class="glyphicon glyphicon-comment"></span> {{ article.thumbup }} Comments</a></li>
+                              <li><a href="#"><span class="glyphicon glyphicon-star-empty"></span>{{ article.collect }} Favorites</a></li>
+                          </ul>
+                      </article>
+                  </div>
+                  <hr>
+                  {% endfor %}
+              </div>
+            </div>
+
+            <!-- Two Third Box End -->
+            <!-- One Third Box Start -->
+            <div class="onethird right">
+            	<!-- One Third Box Start -->
+                <div class="onethird box left">
+                	<!-- Upcoming Widget Start -->
+            		<div class="widget upcoming-events">
+                    	<h3 class="widget-head-border colr">事件表</h3>
+                        <ul>
+                        	<li>
+                            	<div class="date">
+                                	<span>01</span>
+                                  <span>六月</span>
+                                </div>
+                                <div class="desc">
+                                	<a href="#" class="title txthover">量子计算机的诞生与发展讲座</a>
+                                    <p class="time">12:00</p>
+                                    <p class="location">地点：太原工业学院扇形报告厅</p>
+                                </div>
+                            </li>
+                            <li>
+                            	<div class="date">
+                                	<span>05</span>
+                                  <span>六月</span>
+                                </div>
+                                <div class="desc">
+                                	<a href="#" class="title txthover">计算机工程系足球比赛</a>
+                                    <p class="time">2：00</p>
+                                    <p class="location">地点：太原工业学院足球场</p>
+                                </div>
+                            </li>
+                            <li>
+                            	<div class="date">
+                                	<span>08</span>
+                                    <span>JUL</span>
+                                </div>
+                                <div class="desc">
+                                	<a href="#" class="title txthover">冬季马拉松</a>
+                                    <p class="time">2:00 PM - 7:00 PM</p>
+                                    <p class="location">地点：迎泽公园</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- Upcoming Widget End -->
+            	</div>
+                <!-- One Third Box End -->
+            </div>
+            <!-- One Third Box End -->
+        </div>
+    </div>
+    <!-- Content Section End -->
+    <!-- Center Column -->
+
+
+    <!--/Center Column-->
+<!-- /.main -->
+
+{% endblock %}

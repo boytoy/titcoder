@@ -1,0 +1,36 @@
+{% extends "basic.inc.html" %}
+{% load staticfiles %}
+{% block title %}新闻{% endblock %}
+{% block css %}
+{% endblock %}
+{% block nav-title %}新闻资讯{% endblock %}
+{% block nav-intro %}体验计算机浪潮之巅，了解计算机行业的前沿资讯{% endblock %}
+{% block nav-more %}
+{% endblock %}
+
+
+{% block content %}
+
+<!-- Center Column -->
+<div class="container">
+    <!-- Articles -->
+    {% for article in latest_article_list %}
+    <div class="row">
+        <article class="col-xs-12">
+            <h2><a id="article_title", href="/news/{{ article.id }}">{{ article.title }}</a></h2>
+            <p>{{ article.content|truncatechars_html:80 | safe }}</p>
+        <!--     <p><button class="btn btn-default">Read More</button></p>  -->
+            <p class="pull-right"><span class="label label-default">{{ article.category }}</span> <span class="label label-default">tag</span> <span class="label label-default">{{ article.author }}</span></p>
+            <ul class="list-inline">
+                <li><a href="#">{{ article.pub_date | date:"j M" }}</a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-comment"></span> {{ article.thumbup }} Comments</a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-star-empty"></span>{{ article.collect }} Favorites</a></li>
+            </ul>
+        </article>
+    </div>            
+    <hr>
+    {% endfor %}
+</div>
+<!--/Center Column-->
+
+{% endblock %}
